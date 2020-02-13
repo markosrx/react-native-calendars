@@ -22,7 +22,7 @@ export default function(theme={}) {
       margin: 10
     },
     arrow: {
-      padding: 10,
+      // padding: 10,
       ...appStyle.arrowStyle
     },
     arrowImage: {
@@ -32,13 +32,13 @@ export default function(theme={}) {
       tintColor: appStyle.disabledArrowColor
     },
     week: {
-      marginTop: 7,
+      marginTop: -2,  //7,
       flexDirection: 'row',
       justifyContent: 'space-around'
     },
     dayHeader: {
-      marginTop: 2,
-      marginBottom: 7,
+      marginTop: 4, //2,
+      marginBottom: 2,  //7,
       width: 32,
       textAlign: 'center',
       fontSize: appStyle.textDayHeaderFontSize,

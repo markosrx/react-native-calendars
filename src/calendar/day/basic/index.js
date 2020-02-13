@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {View, TouchableOpacity, Text} from 'react-native';
 import PropTypes from 'prop-types';
 import {shouldUpdate} from '../../../component-updater';
-
+import LinearGradient from 'react-native-linear-gradient';
 import styleConstructor from './style';
 
 
@@ -92,8 +92,14 @@ class Day extends Component {
         accessibilityRole={isDisabled ? undefined : 'button'}
         accessibilityLabel={this.props.accessibilityLabel}
       >
-        <Text allowFontScaling={false} style={textStyle}>{String(this.props.children)}</Text>
-        {dot}
+        {!marking.selected ?
+          [<Text allowFontScaling={false} style={textStyle}>{String(this.props.children)}</Text>, dot]              //napomena za [ ]
+          :
+          <LinearGradient colors={['#E44827', '#FC8443', '#E44827']} style={containerStyle} start={{ x: 1, y: 0}} end={{ x: 0, y: 0}}>
+            <Text allowFontScaling={false} style={textStyle}>{String(this.props.children)}</Text>
+            {dot}
+          </LinearGradient>
+        }
       </TouchableOpacity>
     );
   }

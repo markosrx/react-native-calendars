@@ -31,7 +31,7 @@ const SPEED = 20;
 const BOUNCINESS = 6;
 const CLOSED_HEIGHT = 120; // header + 1 week
 const WEEK_HEIGHT = 46;
-const KNOB_CONTAINER_HEIGHT = 20;
+const KNOB_CONTAINER_HEIGHT = 0;  //20;
 const HEADER_HEIGHT = 68;
 const DAY_NAMES_PADDING = 24;
 
@@ -66,8 +66,8 @@ class ExpandableCalendar extends Component {
     horizontal: true,
     initialPosition: POSITIONS.CLOSED,
     firstDay: 0,
-    leftArrowImageSource: require('../calendar/img/previous.png'),
-    rightArrowImageSource: require('../calendar/img/next.png'),
+    leftArrowImageSource: require('../calendar/img/previous-custom24.png'),
+    rightArrowImageSource: require('../calendar/img/next-custom24.png'),
     allowShadow: true
   }
 

@@ -35,13 +35,13 @@ export default function styleConstructor(theme = {}) {
       bottom: 0,
       alignItems: 'center',
       justifyContent: 'center',
-      backgroundColor: appStyle.calendarBackground
+      backgroundColor: 'transparent',   //appStyle.calendarBackground
     },
     knob: {
       width: 40,
       height: 4,
       borderRadius: 3,
-      backgroundColor: '#e8ecf0'
+      backgroundColor: 'transparent'  //'#e8ecf0'
     },
     sectionText: {
       fontWeight: 'bold', 
@@ -88,8 +88,8 @@ export default function styleConstructor(theme = {}) {
     week: {
       marginTop: 7,
       marginBottom: 7,
-      paddingRight: 15,
-      paddingLeft: 15,
+      paddingRight: 0,  //15,
+      paddingLeft: 0, //15,
       flexDirection: 'row',
       justifyContent: 'space-around'
     },

@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 import styleConstructor from './style';
 import {weekDayNames} from '../../dateutils';
 import {CHANGE_MONTH_LEFT_ARROW, CHANGE_MONTH_RIGHT_ARROW} from '../../testIDs';
-
+import LinearGradient from 'react-native-linear-gradient';
 
 class CalendarHeader extends Component {
   static displayName = 'IGNORE';
@@ -115,7 +115,7 @@ class CalendarHeader extends Component {
           {this.props.renderArrow
             ? this.props.renderArrow('left')
             : <Image
-              source={require('../img/previous.png')}
+              source={require('../img/previous-custom24.png')}
               style={this.props.disableArrowLeft ? this.style.disabledArrowImage : this.style.arrowImage}
             />}
         </TouchableOpacity>
@@ -131,7 +131,7 @@ class CalendarHeader extends Component {
           {this.props.renderArrow
             ? this.props.renderArrow('right')
             : <Image
-              source={require('../img/next.png')}
+              source={require('../img/next-custom24.png')}
               style={this.props.disableArrowRight ? this.style.disabledArrowImage : this.style.arrowImage}
             />}
         </TouchableOpacity>
@@ -173,7 +173,7 @@ class CalendarHeader extends Component {
           {rightArrow}
         </View>
         {!this.props.hideDayNames &&
-          <View style={this.style.week}>
+          <LinearGradient colors={['#E44827', '#FC8443', '#E44827']} style={this.style.week}>
             {this.props.weekNumbers && 
               <Text allowFontScaling={false} style={this.style.dayHeader}></Text>
             }
@@ -190,7 +190,7 @@ class CalendarHeader extends Component {
                 {day}
               </Text>
             ))}
-          </View>
+          </LinearGradient>
         }
       </View>
     );
