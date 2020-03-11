@@ -35,13 +35,13 @@ export default function styleConstructor(theme = {}) {
       bottom: 0,
       alignItems: 'center',
       justifyContent: 'center',
-      backgroundColor: 'transparent',   //appStyle.calendarBackground
+      backgroundColor: appStyle.calendarBackground,  //'transparent',  
     },
     knob: {
       width: 40,
       height: 4,
       borderRadius: 3,
-      backgroundColor: 'transparent'  //'#e8ecf0'
+      backgroundColor: '#e8ecf0'  //'transparent'
     },
     sectionText: {
       fontWeight: 'bold', 
