@@ -302,6 +302,29 @@ class ExpandableCalendar extends Component {
       this.resetWeekCalendarOpacity(isOpen);
     }
   }
+  /** Dodao SrX za akciju otvaranja/zatvaranja kalendara */
+  bounceToOpenClosedPosition(toValue) {
+      const { deltaY } = this.state;
+      const threshold = this.openHeight / 1.75;
+
+      let isOpen = this._height >= threshold;
+      const newValue = isOpen ? this.openHeight : this.closedHeight;
+
+      deltaY.setValue(this._height); // set the start position for the animated value
+      this._height = toValue || newValue;
+      isOpen = this._height >= threshold; // re-check after this._height was set
+
+      Animated.spring(deltaY, {
+        toValue: this._height,
+        speed: SPEED,
+        bounciness: BOUNCINESS
+      }).start(this.onAnimatedFinished);
+
+      this.setPosition();
+      this.closeHeader(isOpen);
+      this.resetWeekCalendarOpacity(isOpen);
+  }
+
 
   onAnimatedFinished = ({ finished }) => {
     if (finished) {
@@ -452,7 +475,7 @@ class ExpandableCalendar extends Component {
     // TODO: turn to TouchableOpacity with onPress that closes it         //pointerEvents={'none'}
     return (
       <View style={this.style.knobContainer} >
-        <TouchableOpacity onPress={() => isClosed ? this.bounceToPosition(this.openHeight) : this.bounceToPosition(this.closedHeight)}>
+        <TouchableOpacity onPress={() => isClosed ? this.bounceToOpenClosedPosition(this.openHeight) : this.bounceToOpenClosedPosition(this.closedHeight)}>
           {isClosed ?
             <>
               <View style={this.style.knob} testID={CALENDAR_KNOB} />
