@@ -53,6 +53,8 @@ class ExpandableCalendar extends Component {
     disablePan: PropTypes.bool,
     /** whether to hide the knob  */
     hideKnob: PropTypes.bool,
+    /** dodao prop za zatvaranje kalendara pri selektovanju datuma */
+    closeCalendarWhenSelectDate: PropTypes.bool,
     /** source for the left arrow image */
     leftArrowImageSource: PropTypes.oneOfType([PropTypes.object, PropTypes.number, PropTypes.func]),
     /** source for the right arrow image */
@@ -368,11 +370,14 @@ class ExpandableCalendar extends Component {
   onDayPress = (value) => { // {year: 2019, month: 4, day: 22, timestamp: 1555977600000, dateString: "2019-04-23"}
     _.invoke(this.props.context, 'setDate', value.dateString, UPDATE_SOURCES.DAY_PRESS);
 
-    setTimeout(() => { // to allows setDate to be completed
-      if (this.state.position === POSITIONS.OPEN) {
-        this.bounceToPosition(this.closedHeight);
-      }
-    }, 0);
+    this.props.closeCalendarWhenSelectDate ?
+      setTimeout(() => { // to allows setDate to be completed
+        if (this.state.position === POSITIONS.OPEN) {
+          this.bounceToPosition(this.closedHeight);
+        }
+      }, 0)
+      :
+      null
   }
 
   onVisibleMonthsChange = (value) => {
