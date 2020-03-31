@@ -173,7 +173,7 @@ class CalendarHeader extends Component {
           {rightArrow}
         </View>
         {!this.props.hideDayNames &&
-          <LinearGradient colors={['#E44827', '#FC8443', '#E44827']} style={this.style.week}>
+          <LinearGradient colors={['#f58634', '#f8a653', '#d7651b']} style={this.style.week}>
             {this.props.weekNumbers && 
               <Text allowFontScaling={false} style={this.style.dayHeader}></Text>
             }

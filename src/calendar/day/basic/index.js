@@ -95,7 +95,7 @@ class Day extends Component {
         {!marking.selected ?
           [<Text allowFontScaling={false} style={textStyle}>{String(this.props.children)}</Text>, dot]              //napomena za [ ]
           :
-          <LinearGradient colors={['#E44827', '#FC8443', '#E44827']} style={containerStyle} start={{ x: 1, y: 0}} end={{ x: 0, y: 0}}>
+          <LinearGradient colors={['#f58634', '#f8a653', '#d7651b']} style={containerStyle} start={{ x: 1, y: 0}} end={{ x: 0, y: 0}}>
             <Text allowFontScaling={false} style={textStyle}>{String(this.props.children)}</Text>
             {dot}
           </LinearGradient>
